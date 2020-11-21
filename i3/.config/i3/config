@@ -195,3 +195,8 @@ bindsym Print --release exec /usr/bin/flameshot gui
 
 #default workspace
 assign [class="Vivaldi-stable"] $ws2
+
+# Wallpaper
+exec --no-startup-id feh --bg-fill -no-fehbg --randomize ~/Pictures/Wallpaper/*
+# 
+exec --no-startup-id picom

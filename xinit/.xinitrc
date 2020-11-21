@@ -58,4 +58,8 @@ unset DBUS_SESSION_BUS_ADDRESS
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
+
 exec dbus-launch i3
+
+# export DESKTOP_SESSION=plasma
+# exec dbus-launch startplasma-x11
