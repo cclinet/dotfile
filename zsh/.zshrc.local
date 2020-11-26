@@ -335,7 +335,7 @@ zstyle ':prompt:grml:left:setup' items rc virtual-env change-root user at host p
 
 ## END OF FILE #################################################################
 
-# alias vim=nvim
+alias vim=nvim
 
 #pyenv
 if command -v pyenv 1>/dev/null 2>&1; then
@@ -356,4 +356,6 @@ function conda_prompt () {
 grml_theme_add_token conda -f conda_prompt '%B%F{white}' '%f%b'   
 zstyle ':prompt:grml:left:setup' items rc conda virtual-env change-root user at host path vcs percent
 
-
+# NPM
+PATH="$HOME/.node_modules/bin:$PATH"
+export npm_config_prefix=~/.node_modules
