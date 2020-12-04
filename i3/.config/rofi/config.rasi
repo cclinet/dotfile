@@ -1,0 +1,8 @@
+configuration {
+ modi: "window,drun,ssh,combi";
+ font: "Noto Sans 10";
+ show-icons: true;
+ icon-theme: "adwaita-icon-theme";
+ combi-modi: "window,drun,ssh";
+ }
+@import "/usr/share/rofi/themes/android_notification.rasi"

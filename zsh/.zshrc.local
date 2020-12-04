@@ -336,6 +336,7 @@ zstyle ':prompt:grml:left:setup' items rc virtual-env change-root user at host p
 ## END OF FILE #################################################################
 
 alias vim=nvim
+alias sudo=sudo -E
 
 #pyenv
 if command -v pyenv 1>/dev/null 2>&1; then

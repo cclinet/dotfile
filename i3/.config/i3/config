@@ -161,10 +161,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym ${left} resize shrink width 10 px or 10 ppt
+        bindsym ${down} resize grow height 10 px or 10 ppt
+        bindsym ${up} resize shrink height 10 px or 10 ppt
+        bindsym ${right} resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -182,11 +182,14 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command i3status --config ~/.config/i3status.conf
-}
+# bar {
+#         status_command i3status --config ~/.config/i3status.conf
+# }
+
 # CUSTOM
 
+#polybar
+exec-always --no-startup-id $HOME/.config/polybar/launch.sh
 # fcitx5
 exec --no-startup-id fcitx5
 
@@ -199,4 +202,3 @@ assign [class="Vivaldi-stable"] $ws2
 # Wallpaper
 exec --no-startup-id feh --bg-fill -no-fehbg --randomize ~/Pictures/Wallpaper/*
 #  
-# exec --no-startup-id picom

@@ -1,0 +1,69 @@
+[global/wm]
+margin-bottom = 0
+margin-top = 0
+
+include-file = ~/.config/polybar/colors
+
+[bar/poly]
+font-0 = "FiraCode:size=11;2"
+font-1 = "Iosevka Nerd Font:size=15;4"
+
+background = ${color.bg}
+foreground = ${color.fg}
+
+#scroll-up = "#i3.prev"
+#scroll-down = "#i3.next"
+modules-left = i3
+modules-right = date
+tray-position = right
+bottom = true
+
+[module/date]
+type = internal/date
+interval = 15
+label =  %time%
+time = %H:%M %p
+time-alt = %Y-%m-%d
+
+[module/i3]
+type = internal/i3
+
+pin-workspaces = true
+strip-wsnumbers = true
+index-sort = true
+
+enable-click = true
+enable-scroll = true
+
+wrapping-scroll = false
+reverse-scroll = false
+
+fuzzy-match = true
+ws-icon-0 = 1;❶
+ws-icon-1 = 2;❷
+ws-icon-2 = 3;❸
+ws-icon-3 = 4;❹
+ws-icon-4 = 5;❺
+ws-icon-5 = 6;❻
+ws-icon-6 = 7;❼
+ws-icon-7 = 8;❽
+ws-icon-8 = 9;❾
+ws-icon-9 = 10;❿
+ws-icon-default = 
+
+format = <label-state> <label-mode>
+label-focused = %icon%
+label-focused-foreground = ${color.fg}
+label-focused-background = ${color.bg}
+label-focused-padding = 1
+
+label-unfocused = %icon%
+label-unfocused-foreground = ${color.fg-alt}
+label-unfocused-background = ${color.bg}
+label-unfocused-padding = 0
+
+label-urgent = %icon%
+label-urgent-foreground = ${color.red}
+label-urgent-background = ${color.bg}
+label-urgent-padding = 0
+
