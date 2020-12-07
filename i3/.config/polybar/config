@@ -4,6 +4,9 @@ margin-top = 0
 
 include-file = ~/.config/polybar/colors
 
+[settings]
+screenchange-reload = true
+
 [bar/poly]
 font-0 = "FiraCode:size=11;2"
 font-1 = "Iosevka Nerd Font:size=15;4"
