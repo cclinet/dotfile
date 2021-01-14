@@ -82,20 +82,20 @@ zstyle ':prompt:grml:left:setup' items rc virtual-env change-root user at host p
 #WORDCHARS='${WORDCHARS:s@/@}'
 
 # just type '...' to get '../..'
-#rationalise-dot() {
-#local MATCH
-#if [[ $LBUFFER =~ '(^|/| |	|'$'\n''|\||;|&)\.\.$' ]]; then
-#  LBUFFER+=/
-#  zle self-insert
-#  zle self-insert
-#else
-#  zle self-insert
-#fi
-#}
-#zle -N rationalise-dot
-#bindkey . rationalise-dot
-## without this, typing a . aborts incremental history search
-#bindkey -M isearch . self-insert
+rationalise-dot() {
+local MATCH
+if [[ $LBUFFER =~ '(^|/| |	|'$'\n''|\||;|&)\.\.$' ]]; then
+  LBUFFER+=/
+  zle self-insert
+  zle self-insert
+else
+  zle self-insert
+fi
+}
+zle -N rationalise-dot
+bindkey . rationalise-dot
+# without this, typing a . aborts incremental history search
+bindkey -M isearch . self-insert
 
 #bindkey '\eq' push-line-or-edit
 
@@ -334,6 +334,10 @@ zstyle ':prompt:grml:left:setup' items rc virtual-env change-root user at host p
 #vimhelp ()    { vim -c "help $1" -c on -c "au! VimEnter *" }
 
 ## END OF FILE #################################################################
+# add zfunc
+FPATH="$HOME/.zfunc:$FPATH"
+
+export TERMINFO=/usr/share/terminfo
 
 alias vim=nvim
 alias sudo=sudo -E
@@ -345,7 +349,7 @@ fi
 
 # Anaconda                                                                      
 export PATH="$PATH:$HOME/bin"
-export PATH="/opt/anaconda/bin:$PATH"
+export PATH="$PATH:/opt/anaconda/bin"
 
 function conda_prompt () {                                                      
     if [ -n "${CONDA_DEFAULT_ENV+1}" ]; then                                    
@@ -360,3 +364,10 @@ zstyle ':prompt:grml:left:setup' items rc conda virtual-env change-root user at 
 # NPM
 PATH="$HOME/.node_modules/bin:$PATH"
 export npm_config_prefix=~/.node_modules
+
+# CUDA
+
+PATH="$PATH:/opt/cuda/bin"
+CUDAToolkit_ROOT="/opt/cuda"
+autoload -Uz conda
+

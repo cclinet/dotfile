@@ -19,7 +19,7 @@ foreground = ${color.fg}
 modules-left = i3
 modules-right = date
 tray-position = right
-bottom = true
+# bottom = true
 
 [module/date]
 type = internal/date

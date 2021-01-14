@@ -192,13 +192,17 @@ bindsym $mod+r mode "resize"
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # fcitx5
 exec --no-startup-id fcitx5
-#picom
-exec --no-startup-id picom
-##scratchpad
-#exec --no-startup-id com.github.philip-scott.notes-up -name scratchpad
-#for_window [class="Noups-Up" instance="scratchpad"] move scratchpad
-#bindsym $mod+Shift+minus move scratchpad
-#bindsym $mod+minus scratchpad show
+##picom
+#exec --no-startup-id picom
+# qv2ray
+exec qv2ray
+# telegram
+exec telegram-desktop
+#scratchpad
+exec --no-startup-id notepadqq -name scratchpad
+for_window [class="Notepadqq" instance="scratchpad"] move scratchpad
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
 
 # flameshot
 bindsym Print --release exec /usr/bin/flameshot gui
