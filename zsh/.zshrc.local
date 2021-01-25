@@ -342,12 +342,28 @@ export TERMINFO=/usr/share/terminfo
 alias vim=nvim
 alias sudo=sudo -E
 
-#pyenv
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
+##pyenv
+#if command -v pyenv 1>/dev/null 2>&1; then
+#  eval "$(pyenv init -)"
+#fi
 
 # Anaconda                                                                      
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/anaconda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/anaconda/etc/profile.d/conda.sh" ]; then
+        . "/opt/anaconda/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/anaconda/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+
 export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:/opt/anaconda/bin"
 
@@ -360,13 +376,13 @@ function conda_prompt () {
 }
 grml_theme_add_token conda -f conda_prompt '%B%F{white}' '%f%b'   
 zstyle ':prompt:grml:left:setup' items rc conda virtual-env change-root user at host path vcs percent
+autoload -Uz conda
 
 # NPM
 PATH="$HOME/.node_modules/bin:$PATH"
 export npm_config_prefix=~/.node_modules
 
 # CUDA
-
 PATH="$PATH:/opt/cuda/bin"
 CUDAToolkit_ROOT="/opt/cuda"
-autoload -Uz conda
+
